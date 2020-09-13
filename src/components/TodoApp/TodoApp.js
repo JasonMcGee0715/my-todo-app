@@ -42,6 +42,13 @@ class TodoApp extends React.Component {
                 <div>
                     <button onClick={this.handleClick}>Click Me</button>
                     <input value={this.state.text} onChange={this.textUpdate}></input>
+                    <ul>
+                        {this.state.todos.map((todo, index) => {
+                            return <li key={index}>{this.state.todos[index]}</li>
+                        })}
+                    </ul>
+                    
+
                 </div>
             
         )
