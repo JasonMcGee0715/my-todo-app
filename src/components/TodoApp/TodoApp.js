@@ -36,6 +36,14 @@ class TodoApp extends React.Component {
         })
     }
 
+    clearItem = (index) => {
+        const list = this.state.todos.splice(index, 1);
+        this.setState({
+            list
+        })
+        
+    }
+
     render() {
         return (
             
@@ -44,10 +52,11 @@ class TodoApp extends React.Component {
                     <input value={this.state.text} onChange={this.textUpdate}></input>
                     <ul>
                         {this.state.todos.map((todo, index) => {
-                            return <li key={index}>{this.state.todos[index]}</li>
+                            
+                            return <li key={index}>{this.state.todos[index]} <button onClick={this.clearItem.bind(this, index)}>Clear</button></li>
                         })}
                     </ul>
-                    
+
 
                 </div>
             
